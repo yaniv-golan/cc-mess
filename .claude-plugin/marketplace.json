@@ -1,0 +1,17 @@
+{
+  "name": "local",
+  "owner": {
+    "name": "Yaniv Golan"
+  },
+  "plugins": [
+    {
+      "name": "cc-mess",
+      "description": "Inter-Claude-Code communication plugin — mesh networking for multiple Claude Code instances",
+      "author": {
+        "name": "Yaniv Golan"
+      },
+      "source": "./.claude-plugin",
+      "category": "development"
+    }
+  ]
+}
