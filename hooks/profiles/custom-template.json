@@ -1,0 +1,9 @@
+{
+  "name": "custom",
+  "description": "Custom inline rules — copy and modify this template",
+  "policies": [
+    { "tool": "Read", "action": "allow", "conditions": {} },
+    { "tool": "Write", "action": "block", "message": "Customize this policy" },
+    { "tool": "Bash", "action": "block", "message": "Customize this policy" }
+  ]
+}

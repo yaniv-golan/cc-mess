@@ -1,0 +1,27 @@
+{
+  "name": "strict",
+  "description": "Read-only operations",
+  "policies": [
+    { "tool": "Read", "action": "allow", "conditions": { "within_cwd": true } },
+    { "tool": "Glob", "action": "allow", "conditions": { "within_cwd": true } },
+    { "tool": "Grep", "action": "allow", "conditions": { "within_cwd": true } },
+    {
+      "tool": "Bash",
+      "action": "allow",
+      "conditions": {
+        "allowed_commands": [
+          "ls", "cat", "head", "tail",
+          "git log", "git diff", "git status", "git show", "git blame"
+        ]
+      }
+    },
+    { "tool": "Write", "action": "block", "message": "Write blocked in strict mode" },
+    { "tool": "Edit", "action": "block", "message": "Edit blocked in strict mode" },
+    { "tool": "WebFetch", "action": "block", "message": "WebFetch blocked in strict mode" },
+    { "tool": "WebSearch", "action": "block", "message": "WebSearch blocked in strict mode" },
+    { "tool": "send", "action": "allow" },
+    { "tool": "reply", "action": "allow" },
+    { "tool": "broadcast", "action": "allow", "conditions": { "allowed_types": ["insight"] } },
+    { "tool": "spawn", "action": "block", "message": "Spawn blocked in strict mode" }
+  ]
+}
