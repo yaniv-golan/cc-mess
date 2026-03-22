@@ -1,0 +1,7 @@
+{
+  "name": "cc-mess",
+  "version": "0.1.0",
+  "description": "Inter-Claude-Code communication plugin — mesh networking for multiple Claude Code instances",
+  "entry": "${CLAUDE_PLUGIN_ROOT}/dist/server.js",
+  "transport": "stdio"
+}
