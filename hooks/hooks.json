@@ -1,0 +1,15 @@
+{
+  "hooks": [
+    {
+      "matcher": {
+        "tool_name": "*"
+      },
+      "hooks": [
+        {
+          "type": "before",
+          "command": "${CC_MESS_GUARDRAIL_HOOK:-true}"
+        }
+      ]
+    }
+  ]
+}

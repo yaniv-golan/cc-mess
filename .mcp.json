@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "cc-mess": {
+      "command": "node",
+      "args": ["dist/server.js"],
+      "env": {}
+    }
+  }
+}

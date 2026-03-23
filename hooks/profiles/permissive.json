@@ -1,0 +1,33 @@
+{
+  "name": "permissive",
+  "description": "Full development within sandbox",
+  "policies": [
+    { "tool": "Read", "action": "allow", "conditions": { "within_cwd": true } },
+    { "tool": "Glob", "action": "allow", "conditions": { "within_cwd": true } },
+    { "tool": "Grep", "action": "allow", "conditions": { "within_cwd": true } },
+    { "tool": "Write", "action": "allow", "conditions": { "within_cwd": true } },
+    { "tool": "Edit", "action": "allow", "conditions": { "within_cwd": true } },
+    {
+      "tool": "Bash",
+      "action": "allow",
+      "conditions": {
+        "within_cwd": true,
+        "blocked_commands": ["git push"]
+      }
+    },
+    {
+      "tool": "WebFetch",
+      "action": "allow",
+      "conditions": { "allowed_hosts": ["registry.npmjs.org", "pypi.org"] }
+    },
+    {
+      "tool": "WebSearch",
+      "action": "allow",
+      "conditions": { "allowed_hosts": ["registry.npmjs.org", "pypi.org"] }
+    },
+    { "tool": "send", "action": "allow" },
+    { "tool": "reply", "action": "allow" },
+    { "tool": "broadcast", "action": "allow" },
+    { "tool": "spawn", "action": "allow" }
+  ]
+}
