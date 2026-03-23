@@ -1,0 +1,56 @@
+{
+  "name": "cc-mess",
+  "version": "0.1.0",
+  "description": "Inter-Claude-Code communication plugin — mesh networking for multiple Claude Code instances",
+  "license": "MIT",
+  "author": "Yaniv Golan",
+  "repository": "yaniv-golan/cc-mess",
+  "keywords": [
+    "claude-code",
+    "plugin",
+    "mesh",
+    "mcp",
+    "multi-agent"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "type": "module",
+  "main": "dist/server.js",
+  "types": "dist/server.d.ts",
+  "files": [
+    "dist/",
+    "hooks/",
+    "skills/",
+    ".claude-plugin/",
+    ".mcp.json"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src/ tests/",
+    "lint:fix": "eslint src/ tests/ --fix",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^25.5.0",
+    "@types/uuid": "^10.0.0",
+    "@vitest/coverage-v8": "^4.1.0",
+    "eslint": "^10.1.0",
+    "prettier": "^3.8.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.57.1",
+    "vitest": "^4.1.0"
+  }
+}
