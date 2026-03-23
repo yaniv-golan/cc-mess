@@ -120,6 +120,7 @@ export function pollInbox(
   files.sort();
 
   const messages: (Message | ControlMessage)[] = [];
+  const deliveredFiles: string[] = [];
 
   for (const file of files) {
     const filePath = join(inboxDir, file);
@@ -135,6 +136,7 @@ export function pollInbox(
       }
 
       messages.push(msg);
+      deliveredFiles.push(file);
       deliveredIds.add(msg.id);
     } catch {
       // Skip malformed messages
@@ -152,17 +154,8 @@ export function pollInbox(
     }
     atomicWriteJson(deliveredPath, delivered);
 
-    for (const msg of messages) {
-      const timestampMs = new Date(
-        msg.timestamp,
-      ).getTime();
-      const filename = buildMessageFilename(
-        timestampMs,
-        msg.from,
-        msg.type,
-        msg.id,
-      );
-      moveToProcessed(inboxDir, filename);
+    for (const file of deliveredFiles) {
+      moveToProcessed(inboxDir, file);
     }
   }
 
